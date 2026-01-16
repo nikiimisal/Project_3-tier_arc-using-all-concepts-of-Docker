@@ -1,12 +1,23 @@
-# 🧱 Three-Tier Architecture using Docker & Docker Compose
+# Project-3-tier_arc using all concepts of Docker
 
 >This project demonstrates a **Three-Tier Application Architecture** deployed using **Docker** and **Docker Compose** on an **AWS EC2 (Amazon Linux 2023)** instance.
+
+- [To understand the project flow, refer to the screenshots below.  👇](#example-0)
+- [The code for this project is provided above.   👆 ]()
+
 
 The architecture separates the application into three logical layers:
 
 1. **Web Tier (Nginx)** – Handles HTTP requests
 2. **Application Tier (PHP-FPM)** – Processes business logic
 3. **Database Tier (MySQL)** – Stores application data
+
+
+
+  <p align="center">
+  <img src="https://github.com/nikiimisal/Project_3-tier_arc-using-all-concepts-of-Docker/blob/main/img/doc.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
+
 
 ---
 
@@ -405,3 +416,143 @@ This project demonstrates a **real-world Three-Tier application deployment** usi
 ---
 
 ⭐ *This project is ideal for Cloud & DevOps beginners and interview preparation.*
+
+---
+---
+---
+
+
+<a id="example-0"></a>
+
+
+# Screenshot's
+
+-  We removed everything that was created earlier—such as containers, images, networks, and volumes—to start fresh for our project.
+
+
+   <p align="center">
+  <img src="https://github.com/nikiimisal/Project_3-tier_arc-using-all-concepts-of-Docker/blob/main/img/Screenshot%202026-01-16%20204204.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
+  
+---
+
+- Create a project Directory and their reladed folders
+
+  
+<p align="center">
+  <img src="https://github.com/nikiimisal/Project_3-tier_arc-using-all-concepts-of-Docker/blob/main/img/Screenshot%202026-01-16%20210653.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
+
+
+---
+
+
+- Then, place the required scripts and code files inside their respective folders.
+
+  <p align="center">
+  <img src="https://github.com/nikiimisal/Project_3-tier_arc-using-all-concepts-of-Docker/blob/main/img/Screenshot%202026-01-16%20211012.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
+
+  <p align="center">
+  <img src="https://github.com/nikiimisal/Project_3-tier_arc-using-all-concepts-of-Docker/blob/main/img/Screenshot%202026-01-16%20211058.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
+
+
+---
+
+- Run the `docker-compose file`
+
+  
+  <p align="center">
+  <img src="https://github.com/nikiimisal/Project_3-tier_arc-using-all-concepts-of-Docker/blob/main/img/Screenshot%202026-01-16%20211511.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
+
+
+👍Here, everything required to run the project has been added, and the project is now running successfully.
+---
+---
+
+- Ways to view the output
+  - Hit the `public ip` in browser
+  - You can go inside the database container and check the data.
+    
+
+
+Webpage output after accessing the application using the IP address.
+  <p align="center">
+  <img src="https://github.com/nikiimisal/Project_3-tier_arc-using-all-concepts-of-Docker/blob/main/img/Screenshot%202026-01-16%20183515.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
+
+
+---
+
+
+Output after submitting the data.
+
+  <p align="center">
+  <img src="https://github.com/nikiimisal/Project_3-tier_arc-using-all-concepts-of-Docker/blob/main/img/Screenshot%202026-01-16%20183539.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
+
+
+---
+
+
+Output after entering data – browser view and database container view.
+
+
+  <p align="center">
+  <img src="https://github.com/nikiimisal/Project_3-tier_arc-using-all-concepts-of-Docker/blob/main/img/Screenshot%202026-01-16%20184054.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
+
+
+---
+
+
+Or How to access the data inside the database container
+  <p align="center">
+  <img src="https://github.com/nikiimisal/Project_3-tier_arc-using-all-concepts-of-Docker/blob/main/img/Screenshot%202026-01-16%20212819.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
+
+
+
+  <p align="center">
+  <img src="https://github.com/nikiimisal/Project_3-tier_arc-using-all-concepts-of-Docker/blob/main/img/Screenshot%202026-01-16%20212851.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
+
+-----
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
