@@ -359,34 +359,11 @@ docker-compose down
 docker-compose down -v
 ```
 
----
 
 
 
----
 
-## 🔍 Verification
 
-### Check running containers
-
-```bash
-docker ps
-```
-
-### Access MySQL container
-
-```bash
-docker exec -it three_tier-db-1 /bin/bash
-mysql -u root -p
-```
-
-### Verify database
-
-```sql
-SHOW DATABASES;
-USE FCT;
-SELECT * FROM users;
-```
 
 ---
 
