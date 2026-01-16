@@ -430,7 +430,7 @@ This project demonstrates a **real-world Three-Tier application deployment** usi
 -  We removed everything that was created earlier—such as containers, images, networks, and volumes—to start fresh for our project.
 
 
-   <p align="center">
+<p align="center">
   <img src="https://github.com/nikiimisal/Project_3-tier_arc-using-all-concepts-of-Docker/blob/main/img/Screenshot%202026-01-16%20204204.png?raw=true" width="500" alt="Initialize Repository Screenshot">
 </p>
   
@@ -455,6 +455,11 @@ This project demonstrates a **real-world Three-Tier application deployment** usi
 
   <p align="center">
   <img src="https://github.com/nikiimisal/Project_3-tier_arc-using-all-concepts-of-Docker/blob/main/img/Screenshot%202026-01-16%20211058.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
+
+
+  <p align="center">
+  <img src="https://github.com/nikiimisal/Project_3-tier_arc-using-all-concepts-of-Docker/blob/main/img/Screenshot%202026-01-16%20211227.png?raw=true" width="500" alt="Initialize Repository Screenshot">
 </p>
 
 
@@ -521,7 +526,8 @@ Or How to access the data inside the database container
 
 -----
 
-
+---
+---
 
 
 
