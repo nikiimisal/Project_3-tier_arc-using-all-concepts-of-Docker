@@ -1,6 +1,6 @@
-# Project-3-tier_arc-using-all concepts of Docker
+# 🧱 Three-Tier Architecture using Docker & Docker Compose
 
-This project demonstrates a **Three-Tier Application Architecture** deployed using **Docker** and **Docker Compose** on an **AWS EC2 (Amazon Linux 2023)** instance.
+>This project demonstrates a **Three-Tier Application Architecture** deployed using **Docker** and **Docker Compose** on an **AWS EC2 (Amazon Linux 2023)** instance.
 
 The architecture separates the application into three logical layers:
 
@@ -39,18 +39,6 @@ Each tier runs in its **own container**, communicating through **Docker networks
 
 ---
 
-## 🧰 Technologies Used
-
-* AWS EC2 (Amazon Linux 2023)
-* Docker
-* Docker Compose
-* Nginx
-* PHP-FPM (Bitnami Image)
-* MySQL
-* Linux CLI
-
-
----
 
 ## ⚙️ Infrastructure Setup
 
@@ -72,6 +60,20 @@ Each tier runs in its **own container**, communicating through **Docker networks
 > EC2 can be launched using **Terraform / Jenkins**.<br>
 > For better understanding, name the instance:<br>
 > **`Ansible-Docker-WordPress`**
+
+
+
+---
+
+## 🧰 Technologies Used
+
+* AWS EC2 (Amazon Linux 2023)
+* Docker
+* Docker Compose
+* Nginx
+* PHP-FPM (Bitnami Image)
+* MySQL
+* Linux CLI
 
 ---
 
@@ -143,35 +145,190 @@ This ensures database data is **not lost** even if containers stop or restart.
 
 ---
 
-## ▶️ How to Run the Project
+## ▶️ How to Run the Project 
 
-### Step 1: Connect to EC2
+
+
+---
+
+## 🪜 Step 1: Connect to EC2 Instance
 
 ```bash
 ssh -i server1.pem ec2-user@<EC2_PUBLIC_IP>
 ```
 
-### Step 2: Switch to Root
+Switch to root user:
 
 ```bash
 sudo -i
 ```
 
-### Step 3: Navigate to Project Directory
+---
+
+## 📁 Step 2: Create Project Root Directory
 
 ```bash
-cd /home/ec2-user/three_tier
+cd /home/ec2-user
+mkdir three_tier
+cd three_tier
 ```
 
-### Step 4: Start Containers
+---
+
+## 📂 Step 3: Create Three-Tier Folders
+
+```bash
+mkdir web app db
+```
+
+Directory structure now:
+
+```
+three_tier/
+├── web/
+├── app/
+└── db/
+```
+
+---
+
+## 🌐 Step 4: Web Tier (Nginx) Setup
+
+### Create folders
+
+```bash
+cd web
+mkdir code config
+```
+
+### Add HTML code
+
+```bash
+cd code
+nano signup.html
+```
+
+(Add your HTML signup form here and save)
+
+### Add Nginx config
+
+```bash
+cd ../config
+nano default.conf
+```
+
+This config tells Nginx to forward PHP requests to the App container using FastCGI.
+
+---
+
+## ⚙️ Step 5: Application Tier (PHP-FPM) Setup
+
+```bash
+cd ../../app
+mkdir code
+cd code
+nano submit.php
+```
+
+This PHP file receives form data and sends it to MySQL.
+
+---
+
+## 🗄️ Step 6: Database Tier (MySQL) Setup
+
+```bash
+cd ../../db
+nano Dockerfile
+```
+
+Dockerfile builds a custom MySQL image.
+
+Create SQL initialization file:
+
+```bash
+nano init.sql
+```
+
+This file:
+
+* Creates database
+* Creates table
+* Inserts initial data
+
+---
+
+## 🧩 Step 7: Create docker-compose.yml
+
+```bash
+cd ..
+nano docker-compose.yml
+```
+
+This file:
+
+* Defines **web, app, db services**
+* Creates **networks** and **volumes**
+* Connects containers using service names
+
+---
+
+## ▶️ Step 8: Start the Project
 
 ```bash
 docker-compose up -d
 ```
 
+Docker will:
+
+* Pull required images
+* Build MySQL image
+* Create networks & volume
+* Start all three containers
+
 ---
 
-## 🛑 Stop / Shutdown Containers
+## 🔍 Step 9: Verify Containers
+
+```bash
+docker ps
+```
+
+You should see:
+
+* three_tier-web-1
+* three_tier-app-1
+* three_tier-db-1
+
+---
+
+## 🌍 Step 10: Access Application
+
+Open browser:
+
+```
+http://<EC2_PUBLIC_IP>/signup.html
+```
+
+Submit the form → data will be stored in MySQL.
+
+---
+
+## 🧪 Step 11: Verify Database Data
+
+```bash
+docker exec -it three_tier-db-1 /bin/bash
+mysql -u root -p
+```
+
+```sql
+SHOW DATABASES;
+USE FCT;
+SELECT * FROM users;
+```
+
+---
+
+## 🛑 Step 12: Stop or Clean Project
 
 * Stop containers only:
 
@@ -190,6 +347,10 @@ docker-compose down
 ```bash
 docker-compose down -v
 ```
+
+---
+
+
 
 ---
 
