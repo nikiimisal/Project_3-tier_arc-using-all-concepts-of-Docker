@@ -1,0 +1,112 @@
+services:
+  web:
+    image: nginx
+    ports:
+     - "80:80"
+    volumes:
+     - ./web/code/:/usr/share/nginx/html/
+     - ./web/config/:/etc/nginx/conf.d/
+    networks:
+     - webnet
+    depends_on:
+     - app
+     - db
+  app:
+    image: bitnami/php-fpm
+    volumes:
+     - ./app/code/:/app
+    networks:
+     - webnet
+     - dbnet
+    depends_on:
+     - db
+  db:
+    build: ./db/
+    volumes:
+     - vol1:/var/lib/mysql/
+    networks:
+     - dbnet
+networks:
+  webnet:
+  dbnet:
+volumes:
+  vol1:
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+services:                                          # Used to define all application containers (web, app, db)
+  web:                                             # Web service (frontend container)
+    image: nginx                                   # Uses Nginx image for the web (frontend) layer
+    ports:
+     - "80:80"                                     # Maps host port 80 to container port 80
+    volumes:
+     - ./web/code/:/usr/share/nginx/html/         # Mounts website HTML files into Nginx
+     - ./web/config/:/etc/nginx/conf.d/           # Mounts custom Nginx configuration
+    networks:
+     - webnet                                     # Connects web container to web network
+    depends_on:
+     - app                                        # Ensures app container starts before web
+     - db                                         # Ensures database is available
+
+  app:                                            # Used to handle application logic
+    image: bitnami/php-fpm                        # Uses PHP-FPM image for application logic
+    volumes:
+     - ./app/code/:/app                           # Mounts PHP application code
+    networks:
+     - webnet                                     # Allows communication with web container
+     - dbnet                                      # Allows communication with database container
+    depends_on:
+     - db                                         # Starts app only after database is ready
+
+  db:
+    build: ./db/                                  # Builds custom MySQL image from Dockerfile    # Used to create the database service
+    volumes:
+     - vol1:/var/lib/mysql/                       # Persists MySQL data using Docker volume
+    networks:
+     - dbnet                                      # Connects database to backend network only
+
+networks:                                         # Used to define custom networks for container communication
+  webnet:                                         # Network between Web and App layers
+  dbnet:                                          # Network between App and Database layers
+
+volumes:                                          # Used to define persistent storage for containers
+  vol1:                                           # Named volume for MySQL data persistence
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
